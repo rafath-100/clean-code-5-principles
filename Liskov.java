@@ -69,10 +69,10 @@ class Instagram implements SocialMedia, Post {
 
 public class Liskov {
     public static void main(String ...args){
-        SocialMediaInterface wa = new WhatsAppOne();
-        wa.sendPhotos();
-        wa.chatWithUser();
-        InstagramOne inst = new InstagramOne();
-        inst.createPost();
+        SocialMedia whatsApp = new WhatsApp();
+        whatsApp.photo();
+        whatsApp.chat();
+        Instagram instagram = new Instagram();
+        instagram.post();
     }
 }
