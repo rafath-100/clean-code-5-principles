@@ -2,33 +2,33 @@
 
 // Code that violates Liskov Substitution Principle
 abstract class SocialMedia {
-    public abstract void createPost();
-    public abstract void chatWithUser();
-    public abstract void sendPhotos();
+    public abstract void post();
+    public abstract void chat();
+    public abstract void photo();
 }
 
 // Here Whatsapp does not have createPost feature but has to define in sub class as it is abstract
 class WhatsApp extends SocialMedia {
-    public void createPost(){
+    public void post(){
         // Not Avaiable for this SubType
     }
-    public void chatWithUser(){
+    public void chat(){
         System.out.println("Chatting with user");
     }
-    public void sendPhotos(){
+    public void photo(){
         System.out.println("Sending photos...");
     }
 }
 // The above class cannot be substituted in place of its parent class
 
 class Instagram extends SocialMedia {
-    public void createPost(){
+    public void post(){
         System.out.println("Creating post....");
     }
-    public void chatWithUser(){
+    public void chat(){
         System.out.println("Chatting with user");
     }
-    public void sendPhotos(){
+    public void photo(){
         System.out.println("Sending photos ...");
     }
 }
@@ -36,32 +36,32 @@ class Instagram extends SocialMedia {
 
 
 // code that follows Liskov principle
-interface SocialMediaInterface {
-    void chatWithUser();
-    void sendPhotos();
+interface SocialMedia {
+    void chat();
+    void photo();
 }
 
-interface CreatePost {
-    void createPost();
+interface Post {
+    void post();
 }
 
-class WhatsAppOne implements SocialMediaInterface {
-    public void chatWithUser(){
+class WhatsApp implements SocialMedia {
+    public void chat(){
         System.out.println("Chatting with user");
     }
-    public void sendPhotos(){
+    public void photo(){
         System.out.println("Sending photos...");
     }
 }
 
-class InstagramOne implements SocialMediaInterface, CreatePost {
-    public void createPost(){
+class Instagram implements SocialMedia, Post {
+    public void post(){
         System.out.println("Creating post....");
     }
-    public void chatWithUser(){
+    public void chat(){
         System.out.println("Chatting with user");
     }
-    public void sendPhotos(){
+    public void photo(){
         System.out.println("Sending photos ...");
     }
 }
